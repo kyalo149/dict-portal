@@ -11,53 +11,17 @@
       margin: 0;
       padding: 0;
     }
-    header {
-      background-color: #2c3e50;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
+    header, main, nav, footer {
+      display: none;
     }
-    nav {
-      background: #34495e;
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: white;
-      padding: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    main {
-      padding: 20px;
-    }
-    section {
-      margin-bottom: 30px;
-      background: white;
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #2c3e50;
-      color: white;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
-    h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
+    header.active, main.active, nav.active, footer.active {
+      display: block;
     }
     .login-box {
       background: white;
       padding: 20px;
       max-width: 400px;
-      margin: 20px auto;
+      margin: 80px auto;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
@@ -74,20 +38,25 @@
       border: none;
       cursor: pointer;
     }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
+  <div class="login-box" id="loginBox">
+    <h2>🔐 Student Login</h2>
+    <input type="text" id="username" placeholder="Student ID or Name" /><br />
+    <input type="password" id="password" placeholder="Password" /><br />
+    <button onclick="login()">Login</button>
+    <p class="error" id="errorMsg"></p>
+  </div>
+
   <header>
     <h1>DICT Student Portal</h1>
     <p>Diploma in ICT | Resources, Announcements, and Academic Tools</p>
   </header>
-
-  <div class="login-box">
-    <h2>🔐 Student Login</h2>
-    <input type="text" placeholder="Student ID or Name" /><br />
-    <input type="password" placeholder="Password" /><br />
-    <button>Login</button>
-  </div>
 
   <nav>
     <a href="#announcements">Announcements</a>
@@ -169,5 +138,24 @@
   <footer>
     &copy; 2025 DICT Student Portal | Built by Class Rep
   </footer>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const errorMsg = document.getElementById("errorMsg");
+
+      // Simulated credentials
+      if (username === "student" && password === "dict2025") {
+        document.getElementById("loginBox").style.display = "none";
+        document.querySelector("header").classList.add("active");
+        document.querySelector("nav").classList.add("active");
+        document.querySelector("main").classList.add("active");
+        document.querySelector("footer").classList.add("active");
+      } else {
+        errorMsg.textContent = "Invalid login. Please try again.";
+      }
+    }
+  </script>
 </body>
 </html>
