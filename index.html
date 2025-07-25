@@ -42,10 +42,25 @@
       color: red;
       font-size: 0.9em;
     }
+    .logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    header img.logo {
+      width: 80px;
+      float: left;
+      margin-right: 15px;
+    }
+    header h1 {
+      margin: 0;
+      padding-top: 10px;
+    }
   </style>
 </head>
 <body>
   <div class="login-box" id="loginBox">
+    <img src="logo.png" alt="Godoma TTI Logo" class="logo">
     <h2>🔐 Godoma TTI - DICT Login</h2>
     <input type="text" id="username" placeholder="Student ID or Name" /><br />
     <input type="password" id="password" placeholder="Password" /><br />
@@ -54,6 +69,7 @@
   </div>
 
   <header>
+    <img src="logo.png" alt="Logo" class="logo">
     <h1>Godoma TTI - DICT Student Portal</h1>
     <p>Diploma in ICT | Resources, Announcements, and Academic Tools</p>
   </header>
