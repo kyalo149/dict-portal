@@ -1,0 +1,15 @@
+<script>
+  document.querySelector(".login-box button").addEventListener("click", function () {
+    const username = document.querySelector(".login-box input[type='text']").value;
+    const password = document.querySelector(".login-box input[type='password']").value;
+
+    // Simple check (hardcoded)
+    if (username === "dict123" && password === "student") {
+      alert("Login successful!");
+      // Redirect or hide login box
+      document.querySelector(".login-box").style.display = "none";
+    } else {
+      alert("Invalid credentials. Try dict123/student");
+    }
+  });
+</script>
